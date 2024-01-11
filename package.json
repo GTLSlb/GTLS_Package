@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "React component library package for GTLS",
   "main": "dist/index.umd.js",
+  "repository": "git://github.com/GTLSlb/GTLS_Package.git",
   "module": "dist/index.mjs",
   "types": "index.d.ts",
   "files": [
@@ -23,5 +24,8 @@
     "react-headless-accordion": "^1.0.2",
     "typescript": "^5.3.3",
     "vite": "^5.0.11"
+  },
+  "dependencies": {
+    "user": "^0.0.0"
   }
 }
