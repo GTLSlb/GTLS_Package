@@ -1,0 +1,27 @@
+{
+  "name": "gtls-package",
+  "version": "1.0.0",
+  "description": "React component library package for GTLS",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build && tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@inertiajs/react": "^1.0.14",
+    "@types/react": "^18.2.47",
+    "lottie-web": "^5.12.2",
+    "react": "^18.2.0",
+    "react-headless-accordion": "^1.0.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
+  }
+}
