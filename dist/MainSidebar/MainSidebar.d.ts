@@ -8,7 +8,7 @@ interface ResponsiveNavLink {
 interface SidebarProps {
     gtlsLogo: ReactNode;
     SupportModal: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
-    ResponsiveNavLink?: ComponentType<any> | ReactElement | ReactNode | JSX.Element | ComponentType<ResponsiveNavLink>;
+    ResponsiveNavLink: ComponentType<ResponsiveNavLink>;
     LogoutIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     SupportIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     XMarkIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
