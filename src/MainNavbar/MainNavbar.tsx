@@ -22,7 +22,7 @@ export const MainNavbar = ({ NotificationPanel, ThreeBarsSVG, systemName, threeB
                     {typeof ThreeBarsSVG === 'string' ? (
                         <img className="h-6 w-6" src={ThreeBarsSVG} />
                     )
-                    : (NotificationPanel as ReactNode)
+                    : (ThreeBarsSVG as ReactNode)
                     }
                     
                 </button>
