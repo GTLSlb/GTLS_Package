@@ -1,4 +1,4 @@
-import React, { Fragment, ComponentType, ReactNode } from "react";
+import React, { Fragment, ComponentType, ReactNode, ReactElement } from "react";
 import 'tailwindcss/tailwind.css'
 import {
     Accordion,
@@ -17,12 +17,12 @@ interface ResponsiveNavLink{
 
 interface SidebarProps {
     gtlsLogo: ReactNode;
-    SupportModal: ComponentType<any>;
+    SupportModal: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     ResponsiveNavLink: ComponentType<ResponsiveNavLink>;
-    LogoutIcon: ComponentType<any>;
-    SupportIcon: ComponentType<any>;
-    XMarkIcon: ComponentType<any>;
-    ChevronDownIcon: ComponentType<any>;
+    LogoutIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
+    SupportIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
+    XMarkIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
+    ChevronDownIcon?: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     handleLogout: () => void;
     sidebarElements: Record<string, any>[];
     allowedApplications: Record<string, any>[];
@@ -120,14 +120,14 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                                         "group w-auto p-3 rounded-md flex flex-col items-center text-xs font-medium"
                                     )}
                                 >
-                                    <SupportIcon
-                                        className={classNames(
+                                    {typeof SupportIcon === 'string' ? (
+                                        <img className={classNames(
                                             "text-gray-400 group-hover:text-white",
                                             "h-6 w-6"
-                                        )}
-                                        aria-hidden="true"
-                                    />
-
+                                        )} src={SupportIcon} />
+                                    )
+                                    : (SupportIcon as ReactNode)
+                                    }
                                     <span className="mt-2">Support</span>
                                 </button>
                             </a>
@@ -135,7 +135,11 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                                 <ResponsiveNavLink
                                     className="flex flex-col hover:bg-gray-900 hover:text-white"
                                 >
-                                    <LogoutIcon className="w-7 ml-2 text-gray-400" />
+                                    {typeof LogoutIcon === 'string' ? (
+                                        <img className="w-7 ml-2 text-gray-400" src={LogoutIcon} />
+                                    )
+                                    : (LogoutIcon as ReactNode)
+                                    }
                                     <span className="text-xs text-gray-400">
                                         LOGOUT
                                     </span>
@@ -191,10 +195,11 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                                                 setMobileMenuOpen
                                             }
                                         >
-                                            <XMarkIcon
-                                                className="h-6 w-6 text-white"
-                                                aria-hidden="true"
-                                            />
+                                            {typeof XMarkIcon === 'string' ? (
+                                            <img className="h-6 w-6 text-white" src={XMarkIcon} />
+                                            )
+                                            : (XMarkIcon as ReactNode)
+                                            }
                                             <span className="sr-only">
                                                 Close sidebar
                                             </span>
@@ -270,7 +275,14 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                                                                                     item?.name
                                                                                 }
                                                                             </span>
-                                                                            {item?.options.length > 0 ? <ChevronDownIcon className="h-3" /> : <></>}
+                                                                            {item?.options.length > 0 ? 
+                                                                            typeof ChevronDownIcon === 'string' ? (
+                                                                                <img className="h-3" src={ChevronDownIcon} alt="" />
+                                                                            ) : (
+                                                                                ChevronDownIcon as ReactElement<any, any>
+                                                                            )
+                                                                            : <></>}
+                                                                            
                                                                         </AccordionHeader>
                                                                         {/* Mobile view  */}
                                                                         {item.options ? (
@@ -399,14 +411,14 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                                             "group w-auto p-3 rounded-md flex flex-col items-center text-xs font-medium"
                                         )}
                                     >
-                                        <SupportIcon
-                                            className={classNames(
-                                                "text-gray-400 group-hover:text-white",
-                                                "h-6 w-6"
-                                            )}
-                                            aria-hidden="true"
-                                        />
-
+                                        {typeof SupportIcon === 'string' ? (
+                                        <img className={classNames(
+                                            "text-gray-400 group-hover:text-white",
+                                            "h-6 w-6"
+                                        )} src={SupportIcon} />
+                                        )
+                                        : (SupportIcon as ReactNode)
+                                        }
                                         <span className="mt-2">Support</span>
                                     </button>
                                 </a>
@@ -414,7 +426,15 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                                     <ResponsiveNavLink
                                         className="flex flex-col hover:bg-gray-900 hover:text-white w-8 h-14"
                                     >
-                                        <LogoutIcon className="w-7 ml-2 text-gray-400" />
+                                        {typeof LogoutIcon === 'string' ? (
+                                        <img className={classNames(
+                                            "text-gray-400 group-hover:text-white",
+                                            "h-6 w-6"
+                                        )} src={LogoutIcon} />
+                                        )
+                                        : (LogoutIcon as ReactNode)
+                                        }
+                                        
                                         <span className="text-xs text-gray-400">
                                             LOGOUT
                                         </span>
@@ -429,7 +449,14 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                     </div>
                 </Dialog>
             </Transition.Root>
-            <SupportModal />
+            {typeof SupportModal === 'string' ? (
+                                        <img className={classNames(
+                                            "text-gray-400 group-hover:text-white",
+                                            "h-6 w-6"
+                                        )} src={SupportModal} />
+                                        )
+                                        : (SupportModal as ReactNode)
+                                        }
         </div>
     )
 }
