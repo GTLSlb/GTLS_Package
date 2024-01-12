@@ -18,7 +18,7 @@ interface ResponsiveNavLink{
 interface SidebarProps {
     gtlsLogo: ReactNode;
     SupportModal: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
-    ResponsiveNavLink: ComponentType<ResponsiveNavLink>;
+    ResponsiveNavLink: ComponentType<ResponsiveNavLink> | ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     LogoutIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     SupportIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     XMarkIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
@@ -132,18 +132,11 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                                 </button>
                             </a>
                             <button onClick={handleLogout}>
-                                <ResponsiveNavLink
-                                    className="flex flex-col hover:bg-gray-900 hover:text-white"
-                                >
-                                    {typeof LogoutIcon === 'string' ? (
-                                        <img className="w-7 ml-2 text-gray-400" src={LogoutIcon} />
-                                    )
-                                    : (LogoutIcon as ReactNode)
-                                    }
-                                    <span className="text-xs text-gray-400">
-                                        LOGOUT
-                                    </span>
-                                </ResponsiveNavLink>
+                                {typeof ResponsiveNavLink === 'string' ? (
+                                <img className="h-6 w-6" src={ResponsiveNavLink} />
+                                )
+                                : (ResponsiveNavLink as ReactNode)
+                                }
                             </button>
                         </div>
                     </div>
@@ -423,22 +416,11 @@ export const MainSidebar = ({ gtlsLogo, mobileMenuOpen, XMarkIcon, ChevronDownIc
                                     </button>
                                 </a>
                                 <button  onClick={handleLogout}>
-                                    <ResponsiveNavLink
-                                        className="flex flex-col hover:bg-gray-900 hover:text-white w-8 h-14"
-                                    >
-                                        {typeof LogoutIcon === 'string' ? (
-                                        <img className={classNames(
-                                            "text-gray-400 group-hover:text-white",
-                                            "h-6 w-6"
-                                        )} src={LogoutIcon} />
-                                        )
-                                        : (LogoutIcon as ReactNode)
-                                        }
-                                        
-                                        <span className="text-xs text-gray-400">
-                                            LOGOUT
-                                        </span>
-                                    </ResponsiveNavLink>
+                                    {typeof ResponsiveNavLink === 'string' ? (
+                                    <img className="h-6 w-6" src={ResponsiveNavLink} />
+                                    )
+                                    : (ResponsiveNavLink as ReactNode)
+                                    }
                                 </button>
                                 </div>
                             </Dialog.Panel>
