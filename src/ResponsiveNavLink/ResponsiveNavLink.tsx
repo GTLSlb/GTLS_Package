@@ -7,7 +7,7 @@ type ResponsiveNavLinkProps = {
   children: ReactNode;
 };
 
-const ResponsiveNavLink = ({ active = false, className = '', children, ...props }: ResponsiveNavLinkProps) => {
+export const ResponsiveNavLink = ({ active = false, className = '', children, ...props }: ResponsiveNavLinkProps) => {
   return (
     <Link
       href={''} {...props}
@@ -18,5 +18,3 @@ const ResponsiveNavLink = ({ active = false, className = '', children, ...props 
     </Link>
   );
 };
-
-export default ResponsiveNavLink;

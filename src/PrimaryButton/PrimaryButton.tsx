@@ -5,7 +5,7 @@ type PrimaryButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   disabled?: boolean;
 };
 
-const PrimaryButton: React.FC<PrimaryButtonProps> = ({ className = '', disabled, children, ...props }) => {
+export const PrimaryButton: React.FC<PrimaryButtonProps> = ({ className = '', disabled, children, ...props }) => {
   return (
     <button
       {...props}
@@ -16,5 +16,3 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({ className = '', disabled,
     </button>
   );
 };
-
-export default PrimaryButton;

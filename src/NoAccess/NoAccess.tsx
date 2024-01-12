@@ -2,7 +2,7 @@ import React from "react";
 import LottieComponent from "./LottieComponent";
 import Lock from "./lock.json";
 
-function NoAccess(): JSX.Element {
+export const NoAccess = () => {
   return (
     <div className="h-screen w-screen flex justify-center text-center items-start pt-32">
       <div>
@@ -20,5 +20,3 @@ function NoAccess(): JSX.Element {
     </div>
   );
 }
-
-export default NoAccess;
