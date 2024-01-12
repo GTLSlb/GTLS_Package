@@ -1,3 +1,2 @@
-/// <reference types="react" />
-declare function NoAccess(): JSX.Element;
-export default NoAccess;
+import React from "react";
+export declare const NoAccess: () => React.JSX.Element;

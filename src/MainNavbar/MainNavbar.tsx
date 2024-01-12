@@ -1,12 +1,12 @@
-import React, { ComponentType, ReactNode } from "react";
+import React, { ComponentType, ReactNode, ReactElement  } from "react";
 import 'tailwindcss/tailwind.css'
 
 interface NavBarProps {
-    NotificationPanel: ComponentType<any>;
+    NotificationPanel: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     systemName: string;
     threeBarsOnClick: () => void;
     notificationCondition: string;
-    ThreeBarsSVG: ComponentType<any>;
+    ThreeBarsSVG: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
 }
 
 export const MainNavbar = ({ NotificationPanel, ThreeBarsSVG, systemName, threeBarsOnClick, notificationCondition }: NavBarProps ) => {
@@ -19,9 +19,12 @@ export const MainNavbar = ({ NotificationPanel, ThreeBarsSVG, systemName, threeB
                     onClick={threeBarsOnClick}
                 >
                     <span className="sr-only">Open sidebar</span>
-                    <ThreeBarsSVG
-                        className="h-6 w-6"
-                    />
+                    {typeof ThreeBarsSVG === 'string' ? (
+                        <img className="h-6 w-6" src={ThreeBarsSVG} />
+                    )
+                    : (NotificationPanel as ReactNode)
+                    }
+                    
                 </button>
                 <div className="flex justify-between items-center lg:gap-x-16 px-4 sm:px-6 w-11/12">
                     <div className=" text-sm font-bold leading-7 text-gray-700 sm:truncate sm:text-lg sm:tracking-tight mr-2">
@@ -29,7 +32,11 @@ export const MainNavbar = ({ NotificationPanel, ThreeBarsSVG, systemName, threeB
                         {systemName}
                     </div>
                     <div className={notificationCondition}>
-                        <NotificationPanel />
+                    {typeof NotificationPanel === 'string' ? (
+                            <img className="h-6 w-6" src={NotificationPanel} />
+                        )
+                        : (NotificationPanel as ReactNode)
+                        }
                     </div>
                 </div>
             </div>

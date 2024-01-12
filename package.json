@@ -1,6 +1,6 @@
 {
   "name": "gtls-package",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React component library package for GTLS",
   "main": "dist/index.umd.js",
   "repository": "git://github.com/GTLSlb/GTLS_Package.git",
