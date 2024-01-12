@@ -10236,13 +10236,8 @@ const lottie = /* @__PURE__ */ getDefaultExportFromCjs(lottieExports), LottieCom
     onClick: pe
   },
   /* @__PURE__ */ React__default.createElement("span", { className: "sr-only" }, "Open sidebar"),
-  /* @__PURE__ */ React__default.createElement(
-    ne,
-    {
-      className: "h-6 w-6"
-    }
-  )
-), /* @__PURE__ */ React__default.createElement("div", { className: "flex justify-between items-center lg:gap-x-16 px-4 sm:px-6 w-11/12" }, /* @__PURE__ */ React__default.createElement("div", { className: " text-sm font-bold leading-7 text-gray-700 sm:truncate sm:text-lg sm:tracking-tight mr-2" }, /* @__PURE__ */ React__default.createElement("span", { className: "text-goldd" }, "GOLD "), "TIGER", " ", oe), /* @__PURE__ */ React__default.createElement("div", { className: me }, /* @__PURE__ */ React__default.createElement(L, null))))), AccordionContext = createContext({
+  typeof ne == "string" ? /* @__PURE__ */ React__default.createElement("img", { className: "h-6 w-6", src: ne }) : ne
+), /* @__PURE__ */ React__default.createElement("div", { className: "flex justify-between items-center lg:gap-x-16 px-4 sm:px-6 w-11/12" }, /* @__PURE__ */ React__default.createElement("div", { className: " text-sm font-bold leading-7 text-gray-700 sm:truncate sm:text-lg sm:tracking-tight mr-2" }, /* @__PURE__ */ React__default.createElement("span", { className: "text-goldd" }, "GOLD "), "TIGER", " ", oe), /* @__PURE__ */ React__default.createElement("div", { className: me }, typeof L == "string" ? /* @__PURE__ */ React__default.createElement("img", { className: "h-6 w-6", src: L }) : L)))), AccordionContext = createContext({
   accordionRef: null,
   items: {},
   setItems: (L) => {
