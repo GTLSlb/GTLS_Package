@@ -1,4 +1,4 @@
-import React, { ComponentType, ReactNode } from "react";
+import React, { ComponentType, ReactNode, ReactElement } from "react";
 import 'tailwindcss/tailwind.css';
 interface ResponsiveNavLink {
     active?: boolean;
@@ -7,12 +7,12 @@ interface ResponsiveNavLink {
 }
 interface SidebarProps {
     gtlsLogo: ReactNode;
-    SupportModal: ComponentType<any>;
-    ResponsiveNavLink: ComponentType<ResponsiveNavLink>;
-    LogoutIcon: ComponentType<any>;
-    SupportIcon: ComponentType<any>;
-    XMarkIcon: ComponentType<any>;
-    ChevronDownIcon: ComponentType<any>;
+    SupportModal: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
+    ResponsiveNavLink?: ComponentType<any> | ReactElement | ReactNode | JSX.Element | ComponentType<ResponsiveNavLink>;
+    LogoutIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
+    SupportIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
+    XMarkIcon: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
+    ChevronDownIcon?: ComponentType<any> | ReactElement | ReactNode | JSX.Element;
     handleLogout: () => void;
     sidebarElements: Record<string, any>[];
     allowedApplications: Record<string, any>[];
